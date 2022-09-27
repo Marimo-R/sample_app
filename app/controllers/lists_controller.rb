@@ -25,7 +25,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
   end
 
-  def update
+  def updated
     list = List.find(params[:id])
     list.update(list_params)
     redirect_to list_path(list.id)
@@ -34,6 +34,6 @@ class ListsController < ApplicationController
   private
   # ストロングパラメータ
   def list_params
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body, :image)
   end
 end
